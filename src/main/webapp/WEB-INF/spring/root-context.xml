@@ -17,7 +17,7 @@
     <!-- Definición de DataSource -->
     <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://localhost:3306/jardin_infantil_ampalu"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/gestionclinica"></property>
         <property name="username" value="administrador"></property>
         <property name="password" value="061273"></property>
     </bean>

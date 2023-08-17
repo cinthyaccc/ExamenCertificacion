@@ -6,9 +6,10 @@
      <!-- Definición del contenedor raíz de Spring, compartido por todos los Servlets y Filtros -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/spring/root-context.xml
-        WEB-INF/spring/spring-security.xml
-        		 
+        <param-value>
+            /WEB-INF/spring/root-context.xml
+            /WEB-INF/spring/spring-security.xml
+            
         </param-value>
         
     </context-param>

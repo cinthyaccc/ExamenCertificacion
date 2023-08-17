@@ -32,6 +32,7 @@
         Escanéa el Classpath en búsqueda de anotaciones como @Component, @Repository, @Service,
         @Controller, etc.
     -->
-    <context:component-scan base-package="modelo.controladores" />
+    
+    <context:component-scan base-package="modelo.controladores, modelo.repositorio, modelo.servicio, modelo.entidad" />
 
 </beans:beans>
