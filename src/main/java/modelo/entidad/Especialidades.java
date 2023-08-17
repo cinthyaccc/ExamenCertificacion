@@ -1,10 +1,11 @@
 package modelo.entidad;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,36 +22,41 @@ public class Especialidades {
     @Column(name = "Nombre")
     private String nombre;
     
-    @OneToMany(mappedBy = "especialidad", cascade = CascadeType.ALL)
-    private List<Doctores> doctores;
-    //Contructor Vacio
-      public Especialidades() {
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "especialidad")
+    private Set<Doctores> doctores = new HashSet<>();
+    
+    // Constructor Vacio
+    public Especialidades() {
          
-      }
-	public Especialidades(String nombre, List<Doctores> doctores) {
-		super();
-		this.nombre = nombre;
-		this.doctores = doctores;
-	}
-	public int getID() {
-		return ID;
-	}
-	public void setID(int iD) {
-		ID = iD;
-	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public List<Doctores> getDoctores() {
-		return doctores;
-	}
-	public void setDoctores(List<Doctores> doctores) {
-		this.doctores = doctores;
-	}
-      
-      
-      
+    }
+
+    public Especialidades(String nombre, Set<Doctores> doctores) {
+        super();
+        this.nombre = nombre;
+        this.doctores = doctores;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int iD) {
+        ID = iD;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Set<Doctores> getDoctores() {
+        return doctores;
+    }
+
+    public void setDoctores(Set<Doctores> doctores) {
+        this.doctores = doctores;
+    }
 }

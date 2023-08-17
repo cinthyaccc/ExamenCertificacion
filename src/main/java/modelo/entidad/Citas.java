@@ -1,9 +1,7 @@
 package modelo.entidad;
 
 import java.sql.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,105 +10,85 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "citas")
 public class Citas {
-	@Id
-    @Column(name = "Paciente_ID")
+    @Id
+    @Column(name = "ID") // Cambia el nombre de la columna
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ID;
-	private Date Fecha;
-	
-	
-	
-	//Contructor Vacio
-    public Citas() {
-       
-    }
+    private int ID;
+    private Date Fecha;
+
+    // Resto del código
+    
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Doctor_ID")
-    private Doctores Doctor_ID;
+    private Doctores doctor;
+
+  
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Factura_ID") // Cambia el nombre de la columna
+    private Facturas facturas;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Paciente_ID") // Mantén el nombre para la relación con Pacientes
+    private Pacientes pacientes;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Facturas_ID")
-    private Facturas Facturas_ID;
- 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Pacientes_ID")
-    private Pacientes Pacientes_ID;
+    // Constructor Vacio
+    public Citas() {
 
+    }
+    
+    public Citas(Date fecha, Doctores doctor, Facturas facturas, Pacientes pacientes) {
+        super();
+        Fecha = fecha;
+        this.doctor = doctor;
+        this.facturas = facturas;  // Corregido aquí
+        this.pacientes = pacientes; // Corregido aquí
+    }
 
+    public int getID() {
+        return ID;
+    }
 
-	public Citas(Date fecha, Doctores doctor_ID, Facturas facturas_ID, Pacientes pacientes_ID) {
-		super();
-		Fecha = fecha;
-		Doctor_ID = doctor_ID;
-		Facturas_ID = facturas_ID;
-		Pacientes_ID = pacientes_ID;
-	}
+    public void setID(int iD) {
+        ID = iD;
+    }
 
+    public Date getFecha() {
+        return Fecha;
+    }
 
+    public void setFecha(Date fecha) {
+        Fecha = fecha;
+    }
 
-	public int getID() {
-		return ID;
-	}
+    public Doctores getDoctor() {
+        return doctor;
+    }
 
+    public void setDoctor(Doctores doctor) {
+        this.doctor = doctor;
+    }
 
+    public Facturas getFacturas() {
+        return facturas;
+    }
 
-	public void setID(int iD) {
-		ID = iD;
-	}
+    public void setFacturas(Facturas facturas) {
+        this.facturas = facturas;
+    }
 
+    public Pacientes getPacientes() {
+        return pacientes;
+    }
 
-
-	public Date getFecha() {
-		return Fecha;
-	}
-
-
-
-	public void setFecha(Date fecha) {
-		Fecha = fecha;
-	}
-
-
-
-	public Doctores getDoctor_ID() {
-		return Doctor_ID;
-	}
-
-
-
-	public void setDoctor_ID(Doctores doctor_ID) {
-		Doctor_ID = doctor_ID;
-	}
-
-
-
-	public Facturas getFacturas_ID() {
-		return Facturas_ID;
-	}
-
-
-
-	public void setFacturas_ID(Facturas facturas_ID) {
-		Facturas_ID = facturas_ID;
-	}
-
-
-
-	public Pacientes getPacientes_ID() {
-		return Pacientes_ID;
-	}
-
-
-
-	public void setPacientes_ID(Pacientes pacientes_ID) {
-		Pacientes_ID = pacientes_ID;
-	}
- 
-	
+    public void setPacientes(Pacientes pacientes) {
+        this.pacientes = pacientes;
+    }
 }
