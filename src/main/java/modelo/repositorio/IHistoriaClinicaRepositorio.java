@@ -13,6 +13,7 @@ public interface IHistoriaClinicaRepositorio extends JpaRepository<HistoriaClini
 	 @Query(value = "SELECT * FROM historia_clinica ORDER BY ID ASC LIMIT ?1 OFFSET ?2", nativeQuery = true)
 	    List<HistoriaClinica> getPaginatedHistoriaClinica(int limit, int offset);
 
+	
 
 	
 }

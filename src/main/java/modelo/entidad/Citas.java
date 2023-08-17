@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "citas")
@@ -28,15 +29,21 @@ public class Citas {
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Doctor_ID")
+    
     private Doctores doctor;
 
-  
+    
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Factura_ID") // Cambia el nombre de la columna
+    @JoinColumn(name = "Factura_ID")
+    @JsonBackReference
     private Facturas facturas;
+    
+  
 
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Paciente_ID") // Mantén el nombre para la relación con Pacientes
+    @JsonBackReference
     private Pacientes pacientes;
     
     // Constructor Vacio

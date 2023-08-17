@@ -21,6 +21,8 @@ public class HistoriaClinica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
     
+    
+    
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Doctor_ID")

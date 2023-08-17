@@ -34,4 +34,8 @@ public class CitasServicio {
   public void update(Citas c) {
 	  citasRepo.save(c);
   }
+  
+  public void delete(int id) {
+      citasRepo.deleteById(id);
+  }
 }

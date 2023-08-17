@@ -21,94 +21,25 @@
 
 				<div class="navbar-nav ml-auto" id="navbar-list"
 					style="margin-right: 0; color: black;">
-
-					<a class="nav-item nav-link" href="/final/"
+					<a class="nav-item nav-link" href="/"
 						style="color: black; font-size: 20px; font-weight: bold;">Inicio</a>
-					<%-- Verificar si el usuario NO está autenticado --%>
-					<%
-					if (request.getRemoteUser() == null) {
-					%>
-					<a class="nav-item nav-link" href="login"
-						style="color: black; font-size: 20px; font-weight: bold;">Iniciar
-						Sesión</a> <a class="nav-item nav-link" href="registrarse"
-						style="color: black; font-size: 20px; font-weight: bold;">Registrarse</a>
-
-					<%
-					}
-					%>
-					<%-- Verificar si el usuario tiene el rol "administrador" --%>
-					<%
-					if (request.isUserInRole("ROLE_administrador")) {
-					%>
+					
 
 
-					<div class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="javascript:void(0)"
-							id="navbarDropdown1" role="button" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false" style="color: black;"
-							data-toggle="dropdown"> Parvulario </a>
-
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown"
-							style="background-color: white;">
-							<li><a class="dropdown-item" href="CrearProfesor"
-								style="color: black;">Crear Parvulario</a></li>
-							<li><a class="dropdown-item" href="ListarProfesor"
-								style="color: black;">Listar Parvulario</a></li>
-						</ul>
-					</div>
-
-					<div class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false" style="color: black;"> Alumno </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown"
-							style="background-color: white;">
-							<li><a class="dropdown-item" href="CrearAlumno"
-								style="color: black;">Crear Alumno</a></li>
-							<li><a class="dropdown-item" href="ListarAlumnos"
-								style="color: black;">Listar Alumnos</a></li>
-						</ul>
-					</div>
-
-
-					<form action="${pageContext.request.contextPath}/logout"
-						method="post">
-						<button type="submit" class="btn btn-link"
-							style="color: black; text-decoration: none; font-weight: bold; font-size: 20px;">Salir</button>
-					</form>
-					<%
-					}
-					%>
-
-					<%-- Verificar si el usuario tiene el rol "profesor" --%>
-					<%
-					if (request.isUserInRole("ROLE_profesor")) {
-					%>
-					<div class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false" style="color: black;"> Comunicado</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown"
-							style="background-color: white;">
-							<li><a class="dropdown-item" href="crearComunicados"
-								style="color: black;">Crear Comunicado</a></li>
-							<li><a class="dropdown-item" href="ListarComunicados"
-								style="color: black;">Listar Comunicados</a></li>
-						</ul>
-
-					</div>
-					<a class="nav-item nav-link" href="ListarAlumnos"
-						style="color: black; font-weight: bold; font-size: 20px;">Listado
-						de Alumnos</a>
-					<form action="${pageContext.request.contextPath}/logout"
-						method="post">
-						<button type="submit" class="btn btn-link"
-							style="color: black; text-decoration: none; font-weight: bold; font-size: 20px;">Logout</button>
-					</form>
-					<%
-					}
-					%>
-
+					<a class="nav-item nav-link" href="historiaClinicaJSON"
+						style="color: black; font-size: 20px; font-weight: bold;">Historia Clinica</a>
+					<a class="nav-item nav-link" href="citas"
+						style="color: black; font-size: 20px; font-weight: bold;">Citas</a>
+					
+					<a class="nav-item nav-link" href="doctores"
+						style="color: black; font-size: 20px; font-weight: bold;">Doctores</a>
+					
+				<a class="nav-item nav-link" href="pacientes"
+						style="color: black; font-size: 20px; font-weight: bold;">Pacientes</a>
+					
+					<a class="nav-item nav-link" href="facturas"
+						style="color: black; font-size: 20px; font-weight: bold;">Facturas</a>
+					
 					
 				</div>
 			</div>
@@ -121,15 +52,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 	
-
-	<script>
-    $(document).ready(function() {
-        // Manejar el clic en el enlace de la lista desplegable
-        $('.dropdown-toggle').click(function() {
-            $(this).next('.dropdown-menu').toggle(); // Mostrar o ocultar el menú desplegable
-        });
-    });
-</script>
 
 </body>
 </html>

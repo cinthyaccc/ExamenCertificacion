@@ -12,8 +12,7 @@
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
 
-<link rel="stylesheet" type="text/css"
-	href="/final/res/css/estilos.css">
+<link rel="stylesheet" type="text/css" href="/final/res/css/estilos.css">
 
 <%@ include file="navbar.jsp"%>
 <script
@@ -23,10 +22,10 @@
 	<div class="container-fluid main-content"
 		style="margin-bottom: 100px; margin-top: 20px;">
 		<div class="d-flex justify-content-center">
-    <h1>Prueba</h1>
-</div>
-		
-		
+			<h1>Gestion Clinica</h1>
+		</div>
+
+
 
 	</div>
 

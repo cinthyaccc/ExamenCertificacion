@@ -40,7 +40,7 @@
         </div>
     </div>
     <p style="margin-top: 20px; border-top: 1px solid white; padding-top: 10px;" class="mb-0">
-        @Copyright 2023. Desarrollado por Cinthya Caldera
+        @Copyright 2023. Desarrollado por Cinthya Caldera / https://github.com/cinthyaccc/ExamenCertificacion.git
     </p>
 </footer>
 </div>
